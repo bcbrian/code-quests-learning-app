@@ -1,0 +1,83 @@
+import {
+  CodeSurfer,
+} from "code-surfer";
+import { nightOwl } from "@code-surfer/themes";
+
+import DeckControls from './components/DeckControls';
+
+export const theme = nightOwl;
+
+<DeckControls>
+
+# CSS 
+
+## Cascading Style Sheets
+
+#### The makeup of web apps.
+
+</DeckControls>
+
+---
+
+<DeckControls>
+
+<CodeSurfer>
+
+```css title="CSS Basics" subtitle="This is CSS."
+div {
+  background-color: rebeccapurple;
+  color: white;
+  margin: 12px;
+  padding: 20px;
+  border-radius: 4px;
+}
+```
+
+```diff 1[1,2,3] title="CSS Basics" subtitle="This is the CSS selector."
+```
+
+```diff 1[1,2,3] title="CSS Basics" subtitle="Here we are selecting all div elements."
+```
+
+```diff 2 title="CSS Basics" subtitle="This is a decloration."
+```
+
+```diff 2[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18] title="CSS Basics" subtitle="This is the property, or the what."
+```
+
+```diff 2[21,22,23,24,25,26,27,28,29,30,31,32,33] title="CSS Basics" subtitle="This is the value, or the how."
+```
+
+```diff 2[19,34] title="CSS Basics" subtitle="Notice the colon and semi-colon."
+```
+
+</CodeSurfer>
+
+</DeckControls>
+
+---
+
+<DeckControls>
+
+<CodeSurfer>
+
+```html title="How to add CSS (simple)" subtitle="Use the HTML tag style to add CSS to your app in the HTML file."
+<style>
+  div {
+    background-color: rebeccapurple;
+    color: white;
+    margin: 12px;
+    padding: 20px;
+    border-radius: 4px;
+  }
+</style>
+```
+
+```html title="How to add CSS (best practice)" subtitle="Use the HTML tag link to add CSS to your app from a CSS file."
+<link rel="stylesheet" href="/style.css"/>
+```
+
+
+</CodeSurfer>
+
+</DeckControls>
