@@ -231,25 +231,20 @@ const IndexPage = props => {
               src={`/decks/${decks[deck].url}`}
               frameBorder="0"
               scrolling="no"
-              style={
-                isFullScreen
-                  ? {
-                      position: "fixed",
-                      top: 0,
-                      left: 0,
-                      width: "100vw",
-                      height: "100vh",
-                      backgroundColor: "#011627"
-                    }
-                  : {
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      height: "100%",
-                      backgroundColor: "#011627"
-                    }
-              }
+              css={css`
+                top: 0;
+                left: 0;
+                backgroundcolor: #011627;
+                position: ${isFullScreen
+                  ? "fixed"
+                  : "absolute"};
+                width: ${isFullScreen
+                  ? "100vw"
+                  : "100%"};
+                height: ${isFullScreen
+                  ? "100vh"
+                  : "100%"};
+              `}
             />
           </div>
           {/* <div>
