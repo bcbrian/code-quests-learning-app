@@ -63,16 +63,10 @@ const IndexPage = props => {
   });
 
   function handleDeckState(e) {
-    console.log(e.detail); // outputs: {foo: 'bar'}
     setDeckState(e.detail);
   }
 
   function handleNextDeck(e) {
-    console.log(
-      "next deck",
-      deck + 1,
-      decks.length
-    ); // outputs: {foo: 'bar'}
     let deckIndex = deck + 1;
     if (deckIndex >= decks.length) {
       deckIndex = 0;
@@ -109,18 +103,25 @@ const IndexPage = props => {
   }, [deck]);
 
   useEffect(() => {
+    console.log(
+      "EMITTING LOOP SEQUENCE",
+      iframeEl.current,
+      deckState
+    );
     if (!iframeEl.current) {
       return;
     }
+    console.log("EMITTING LOOP SEQUENCE 2");
     const event = new CustomEvent("shouldLoop", {
       detail: shouldLoop
     });
+    console.log("EMITTING LOOP SEQUENCE 3");
     iframeEl.current.contentDocument.dispatchEvent(
       event
     );
-  }, [iframeEl, shouldLoop]);
+    console.log("EMITTING LOOP SEQUENCE 4");
+  }, [iframeEl, shouldLoop, deckState]);
 
-  console.log("SDGHSDFGSDFG", deck, deckState);
   return (
     <Layout>
       <SEO title="Home" />
@@ -228,7 +229,7 @@ const IndexPage = props => {
               ref={iframeEl}
               title={decks[deck].name}
               src={`/decks/${decks[deck].url}`}
-              frameborder="0"
+              frameBorder="0"
               scrolling="no"
               style={
                 isFullScreen

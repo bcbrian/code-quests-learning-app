@@ -13,21 +13,14 @@ export default function DeckControls({
   const [shouldLoop, setShouldLoop] = useState(
     false
   );
-  try {
-    const event = new CustomEvent("deckState", {
-      detail: state
-    });
-    window.parent.document.dispatchEvent(event);
-  } catch (err) {
-    console.log("ummm", err);
-  }
-
   function handleShouldLoop(event) {
+    console.log("HANDLING LOOP SEQUENCE");
     console.log("EVENT!", event);
     setShouldLoop(event.detail);
   }
 
   useEffect(() => {
+    console.log("SETTING UP LOOP SEQUENCE");
     window.document.addEventListener(
       "shouldLoop",
       handleShouldLoop,
@@ -40,6 +33,17 @@ export default function DeckControls({
         false
       );
   }, [shouldLoop]);
+
+  useEffect(() => {
+    try {
+      const event = new CustomEvent("deckState", {
+        detail: state
+      });
+      window.parent.document.dispatchEvent(event);
+    } catch (err) {
+      console.log("ummm", err);
+    }
+  });
 
   useEffect(() => {
     if (!shouldLoop) {
