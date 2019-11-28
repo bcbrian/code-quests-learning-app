@@ -234,7 +234,7 @@ const IndexPage = props => {
               css={css`
                 top: 0;
                 left: 0;
-                backgroundcolor: #011627;
+                background-color: #011627;
                 position: ${isFullScreen
                   ? "fixed"
                   : "absolute"};
