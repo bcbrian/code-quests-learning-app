@@ -12,6 +12,10 @@ import SEO from "../components/seo";
 
 const decks = [
   {
+    name: "Intro",
+    url: "intro"
+  },
+  {
     name: "HTML",
     url: "html"
   },
