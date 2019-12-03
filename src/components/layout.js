@@ -51,6 +51,7 @@ const Layout = ({ children }) => {
           left: 68px;
           position: fixed;
           bottom: 0;
+          color: white;
         `}
       >
         © {new Date().getFullYear()} Code Quests
