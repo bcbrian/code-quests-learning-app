@@ -126,6 +126,39 @@ const IndexPage = props => {
     console.log("EMITTING LOOP SEQUENCE 4");
   }, [iframeEl, shouldLoop, deckState]);
 
+  function handleKeyup(event) {
+    console.log(event);
+    const { code } = event;
+    if (code === "ArrowRight") {
+      if (!iframeEl.current) {
+        return;
+      }
+      console.log("EMITTING NEXT 2");
+      const event = new CustomEvent("nextSlide", {
+        detail: "next"
+      });
+      console.log("EMITTING NEXT 3");
+      iframeEl.current.contentDocument.dispatchEvent(
+        event
+      );
+      console.log("EMITTING NEXT 4");
+    }
+  }
+  useEffect(() => {
+    document.addEventListener(
+      "keyup",
+      handleKeyup,
+      true
+    );
+    return () => {
+      document.removeEventListener(
+        "keyup",
+        handleKeyup,
+        true
+      );
+    };
+  });
+
   return (
     <Layout>
       <SEO title="Home" />
